@@ -1,0 +1,18 @@
+---
+interface Props {
+  active?: true | undefined;
+  href: string;
+}
+
+const { href, active } = Astro.props;
+
+const classList = active
+  ? "text-white bg-primary md:bg-transparent md:text-primary md:dark:bg-transparent"
+  : "text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary dark:text-white md:dark:hover:text-primary dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent";
+---
+
+<li>
+  <a href={href} class={`${classList} block py-2 px-3 rounded md:p-0`}
+    ><slot /></a
+  >
+</li>

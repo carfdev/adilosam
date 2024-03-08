@@ -1,11 +1,18 @@
+---
+import Logo from "@/components/Logo.astro";
+import Menu from "@/components/Menu.astro";
+import MenuItem from "@/components/MenuItem.astro";
+import Dropdown from "@/components/Dropdown.astro";
+import DropdownItem from "@/components/DropdownItem.astro";
+
+const url = Astro.url.pathname;
+const parts = url.split("/");
+const link = parts.slice(0, 2).join("/");
+---
+
 <nav class="bg-white border-border border-b dark:bg-[#121417]">
   <div class="flex flex-wrap items-center justify-between py-3 px-10">
-    <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse h-10">
-      <span
-        class="self-center text-2xl font-semibold whitespace-nowrap text-light-color dark:text-white"
-        >Adilosam</span
-      >
-    </a>
+    <Logo />
     <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
       <button
         type="button"
@@ -36,152 +43,33 @@
         </svg>
       </button>
     </div>
-    <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-      <ul
-        class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700"
+    <Menu>
+      <MenuItem active={link === "/" ? true : undefined} href="/">
+        Home
+      </MenuItem>
+      <Dropdown name="Privat" active={link === "/privat" ? true : undefined}>
+        <DropdownItem href="/privat/hemstadning/">Hemstädning</DropdownItem>
+        <DropdownItem href="/privat/stortstadning/">Storstädning</DropdownItem>
+        <DropdownItem href="/privat/flyttstadning/">Flyttstädning</DropdownItem>
+      </Dropdown>
+      <Dropdown name="Företag" active={link === "/foretag" ? true : undefined}>
+        <DropdownItem href="/foretag/kontorstadning/">
+          Kontorstädning
+        </DropdownItem>
+        <DropdownItem href="/foretag/trappstadning/">
+          Trappstädning
+        </DropdownItem>
+        <DropdownItem href="/foretag/byggstadning/">Byggstädning</DropdownItem>
+      </Dropdown>
+      <MenuItem
+        href="/pricing/"
+        active={link === "/pricing" ? true : undefined}
       >
-        <li>
-          <a
-            href="#"
-            class="block py-2 px-3 text-white bg-primary rounded md:bg-transparent md:text-primary md:p-0 md:dark:bg-transparent"
-            aria-current="page">Home</a
-          >
-        </li>
-        <li>
-          <button
-            id="dropdownNavbarLink"
-            data-dropdown-toggle="dropdownNavbar"
-            class="flex items-center justify-between w-full py-2 px-3 text-light-color rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 md:w-auto dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
-            >Privat <svg
-              class="w-2.5 h-2.5 ms-2.5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 10 6"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m1 1 4 4 4-4"></path>
-            </svg></button
-          >
-          <!-- Dropdown menu -->
-          <div
-            id="dropdownNavbar"
-            class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
-          >
-            <ul
-              class="py-2 text-sm text-gray-700 dark:text-gray-400"
-              aria-labelledby="dropdownLargeButton"
-            >
-              <li>
-                <a
-                  href="#"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >Dashboard</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >Settings</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >Earnings</a
-                >
-              </li>
-            </ul>
-            <div class="py-1">
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                >Sign out</a
-              >
-            </div>
-          </div>
-        </li>
-        <li>
-          <button
-            id="dropdownNavbarLink"
-            data-dropdown-toggle="gkldajsdNavbar"
-            class="flex items-center justify-between w-full py-2 px-3 text-light-color rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 md:w-auto dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
-            >Företag <svg
-              class="w-2.5 h-2.5 ms-2.5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 10 6"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m1 1 4 4 4-4"></path>
-            </svg></button
-          >
-          <!-- Dropdown menu -->
-          <div
-            id="gkldajsdNavbar"
-            class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
-          >
-            <ul
-              class="py-2 text-sm text-gray-700 dark:text-gray-400"
-              aria-labelledby="dropdownLargeButton"
-            >
-              <li>
-                <a
-                  href="#"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >Gkslfsad</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >Tdklasd</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >Xjkdlf</a
-                >
-              </li>
-            </ul>
-            <div class="py-1">
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                >Gifgosdfg</a
-              >
-            </div>
-          </div>
-        </li>
-        <li>
-          <a
-            href="#"
-            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 dark:text-white md:dark:hover:text-primary dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >Pricing</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 dark:text-white md:dark:hover:text-primary dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >About Us</a
-          >
-        </li>
-      </ul>
-    </div>
+        Pricing
+      </MenuItem>
+      <MenuItem href="/about/" active={link === "/about" ? true : undefined}>
+        About Us
+      </MenuItem>
+    </Menu>
   </div>
 </nav>
