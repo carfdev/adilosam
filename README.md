@@ -1,7 +1,5 @@
 # Adilosam web with Astro : Basic
 
-
-
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/carfdev/adilosam)
 
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
@@ -15,13 +13,22 @@ Inside of your Astro project, you'll see the following folders and files:
 ```text
 /
 ├── public/
-│   └── favicon.svg
+│   ├── favicon.svg
+│   └── captura.png
 ├── src/
 │   ├── components/
+│   │   ├── Dropdown.astro
+│   │   ├── DropdownItem.astro
+│   │   ├── Logo.astro
+│   │   ├── Menu.astro
+│   │   ├── MenuItem.astro
 │   │   └── Navbar.astro
 │   ├── layouts/
 │   │   └── Layout.astro
 │   └── pages/
+│       ├── privat/
+│       │   └── hemstadning.astro
+│       ├── about.astro
 │       └── index.astro
 └── package.json
 ```
