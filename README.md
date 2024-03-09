@@ -25,11 +25,13 @@ Inside of your Astro project, you'll see the following folders and files:
 │   │   └── Navbar.astro
 │   ├── layouts/
 │   │   └── Layout.astro
-│   └── pages/
-│       ├── privat/
-│       │   └── hemstadning.astro
-│       ├── about.astro
-│       └── index.astro
+│   ├── pages/
+│   │   ├── privat/
+│   │   │   └── hemstadning.astro
+│   │   ├── about.astro
+│   │   └── index.astro
+│   └── sections/
+│       └── HeaderIndex.astro
 └── package.json
 ```
 
