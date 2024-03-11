@@ -11,15 +11,16 @@ const link = parts.slice(0, 2).join("/");
 ---
 
 <nav
-  class="bg-white md:border-border md:border-b dark:bg-[#121417] fixed top-0 w-screen"
+  class="bg-white md:border-border md:border-b dark:bg-[#121417] fixed top-0 w-screen z-30"
 >
   <div class="flex flex-wrap items-center justify-between py-3 px-10">
     <Logo />
     <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-      <button
+      <a
+        href="/book/"
         type="button"
-        class="text-white bg-primary focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center hidden md:block"
-        >Book Now</button
+        class="text-white bg-primary font-medium rounded-lg text-sm px-4 py-2 text-center hidden md:block cursor-pointer"
+        >Book Now</a
       >
       <button
         data-collapse-toggle="navbar-dropdown"
