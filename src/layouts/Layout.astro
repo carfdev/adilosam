@@ -22,7 +22,9 @@ const { title } = Astro.props;
   </head>
   <body class="bg-white dark:bg-[#121417]">
     <Navbar />
-    <slot />
+    <main class="w-screen max-w-[960px] mx-auto md:mt-5">
+      <slot />
+    </main>
     <script
       is:inline
       src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"

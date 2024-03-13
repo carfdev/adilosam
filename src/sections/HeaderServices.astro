@@ -1,0 +1,38 @@
+---
+import Target from "@/components/TargetServicesIndex.astro";
+---
+
+<section class="w-full p-4">
+  <h2 class="font-bold text-xl mb-3 dark:text-white text-light-color">
+    Our Services
+  </h2>
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+    <Target
+      title="House Cleaning"
+      description="Keep your home tidy and hygienic with our house cleaning solutions."
+      img="/hem.webp"
+    />
+    <Target
+      title="Move In/Out Cleaning"
+      description="Make your move stress-free with our detailed cleaning services."
+      img="/flytt.webp"
+    />
+    <Target
+      title="Office Cleaning"
+      description="Keep your office sanitized  and hygienic with our commercial cleaning services."
+      img="/kontor.webp"
+    />
+    <Target
+      title="Deep Cleaning"
+      description="We'll tidy every nook and corner with our thorough deep cleaning activities."
+      img="/bygg.webp"
+    />
+  </div>
+  <div class="w-full box-border md:hidden">
+    <a
+      href="/book/"
+      class="text-gray-700 dark:text-white font-bold bg-gray-200 dark:bg-[#26303B] mt-7 flex flex-1 p-2 justify-center rounded-full cursor-pointer"
+      >Book Now</a
+    >
+  </div>
+</section>
