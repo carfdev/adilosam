@@ -1,0 +1,40 @@
+---
+import Star from "@/components/icons/Star.astro";
+import Clock from "@/components/icons/Clock.astro";
+---
+
+<section class="w-full p-4">
+  <h2 class="font-bold text-xl mb-3 dark:text-white text-light-color">
+    Why Choose CleanCo
+  </h2>
+  <main class="sm:flex sm:gap-4">
+    <div
+      class="flex gap-3 border-t-2 sm:border-2 border-light-color sm:border-[#DBE3E5] py-4 sm:px-4 sm:rounded-lg sm:block sm:dark:border-gray-700 dark:border-[#E5E8EB]"
+    >
+      <Star class="w-6 h-6 mb-3 hidden sm:inline dark:text-white" />
+      <h3
+        class="w-[92px] sm:w-full text-balance text-gray-800 dark:text-gray-200 font-bold"
+      >
+        Quality Guaranteed
+      </h3>
+      <p class="flex-1 text-gray-500 dark:text-gray-400 text-sm text-pretty">
+        We are committed to providing the highest quality cleaning services for
+        your home or office.
+      </p>
+    </div>
+    <div
+      class="flex gap-3 border-t-2 sm:border-2 border-light-color sm:border-[#DBE3E5] py-4 sm:px-4 sm:rounded-lg sm:block sm:dark:border-gray-700 dark:border-[#E5E8EB]"
+    >
+      <Clock class="w-6 h-6 mb-3 hidden sm:inline dark:text-white" />
+      <h3
+        class="w-[92px] sm:w-full text-balance text-gray-800 dark:text-gray-200 font-bold"
+      >
+        Reliable & Efficient
+      </h3>
+      <p class="flex-1 text-gray-500 dark:text-gray-400 text-sm text-pretty">
+        Our team of professional cleaners are reliable, efficient, and dedicated
+        to meeting your needs.
+      </p>
+    </div>
+  </main>
+</section>

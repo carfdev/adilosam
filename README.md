@@ -32,6 +32,7 @@ Inside of your Astro project, you'll see the following folders and files:
 │   │   ├── about.astro
 │   │   └── index.astro
 │   └── sections/
+│       ├── ChooseIndex.astro
 │       ├── HeaderIndex.astro
 │       ├── ServicesIndex.astro
 │       └── SloganIndex.astro
