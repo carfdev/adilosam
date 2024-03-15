@@ -22,7 +22,8 @@ Inside of your Astro project, you'll see the following folders and files:
 │   │   ├── Logo.astro
 │   │   ├── Menu.astro
 │   │   ├── MenuItem.astro
-│   │   └── Navbar.astro
+│   │   ├── Navbar.astro
+│   │   └── TargetServicesIndex.astro
 │   ├── layouts/
 │   │   └── Layout.astro
 │   ├── pages/
@@ -31,7 +32,9 @@ Inside of your Astro project, you'll see the following folders and files:
 │   │   ├── about.astro
 │   │   └── index.astro
 │   └── sections/
-│       └── HeaderIndex.astro
+│       ├── HeaderIndex.astro
+│       ├── ServicesIndex.astro
+│       └── SloganIndex.astro
 └── package.json
 ```
 
