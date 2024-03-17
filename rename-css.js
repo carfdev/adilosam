@@ -1,116 +1,95 @@
-import replace from 'replace-in-file'
+import replace from 'replace-in-file';
 import gulp from 'gulp';
-import rename from 'gulp-rename'
-import fs from 'fs'
+import rename from 'gulp-rename';
+import fs from 'fs';
 
+// Define los nombres de los archivos de fuente y las opciones de reemplazo
+const fonts = [
+  {
+    name: 'public-sans-latin-ext-wght-normal.D4Umos5N.woff2',
+    options: {
+      from: '/_astro/public-sans-latin-ext-wght-normal.D4Umos5N.woff2',
+      to: '/font/public-sans-latin-ext-wght-normal.D4Umos5N.woff2'
+    }
+  },
+  {
+    name: 'public-sans-latin-wght-normal.RswtdM0r.woff2',
+    options: {
+      from: '/_astro/public-sans-latin-wght-normal.RswtdM0r.woff2',
+      to: '/font/public-sans-latin-wght-normal.RswtdM0r.woff2'
+    }
+  },
+  {
+    name: 'public-sans-vietnamese-wght-normal.BCRJOvr-.woff2',
+    options: {
+      from: '/_astro/public-sans-vietnamese-wght-normal.BCRJOvr-.woff2',
+      to: '/font/public-sans-vietnamese-wght-normal.BCRJOvr-.woff2'
+    }
+  }
+];
 
-//Declarar constantes
-const css = 'about.CyMLqeeO.css';
-const font1 = 'public-sans-latin-ext-wght-normal.D4Umos5N.woff2';
-const font2 = 'public-sans-latin-wght-normal.RswtdM0r.woff2';
-const font3 = 'public-sans-vietnamese-wght-normal.BCRJOvr-.woff2';
-
-
-
+// Opciones para reemplazar el archivo CSS
 const optionsCss = {
-  files: 'dist/**/*.html', // ajusta la ruta según donde tengas tus archivos HTML generados
-  from: `/_astro/${css}`, // el nombre del archivo CSS antiguo
-  to: '/styles/style.css', // el nuevo nombre del archivo CSS
+  files: 'dist/**/*.html',
+  from: '_astro/about.CyMLqeeO.css',
+  to: 'styles/style.css'
 };
 
-const optionsFont1 = {
-  files: `dist/_astro/${css}`, // ajusta la ruta según donde tengas tus archivos HTML generados
-  from: `/_astro/${font1}`, // el nombre del archivo CSS antiguo
-  to: `/font/${font1}`, // el nuevo nombre del archivo CSS
-};
-const optionsFont2 = {
-  files: `dist/_astro/${css}`, // ajusta la ruta según donde tengas tus archivos HTML generados
-  from: `/_astro/${font2}`, // el nombre del archivo CSS antiguo
-  to: `/font/${font2}`, // el nuevo nombre del archivo CSS
-};
-const optionsFont3 = {
-  files: `dist/_astro/${css}`, // ajusta la ruta según donde tengas tus archivos HTML generados
-  from: `/_astro/${font3}`, // el nombre del archivo CSS antiguo
-  to: `/font/${font3}`, // el nuevo nombre del archivo CSS
-};
-
-replace(optionsCss)
-  .then(results => {
-    console.log('Referencias al archivo CSS actualizadas:', results);
-  })
-  .catch(error => {
-    console.error('Error al actualizar las referencias al archivo CSS:', error);
+// Función para realizar el reemplazo con un retardo de 1 segundo
+function replaceFilesWithDelay(options, delay) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      replace(options)
+        .then(results => {
+          console.log('Referencias actualizadas:', results);
+          resolve();
+        })
+        .catch(error => {
+          console.error('Error al actualizar las referencias:', error);
+          reject(error);
+        });
+    }, delay);
   });
+}
 
-  replace(optionsFont1)
-  .then(results => {
-    console.log('Referencias al archivo CSS actualizadas:', results);
-  })
-  .catch(error => {
-    console.error('Error al actualizar las referencias al archivo CSS:', error);
-  });
+// Realizar el reemplazo para el archivo CSS
+replaceFilesWithDelay(optionsCss, 0); // No hay retraso para el archivo CSS
 
-  replace(optionsFont2)
-  .then(results => {
-    console.log('Referencias al archivo CSS actualizadas:', results);
-  })
-  .catch(error => {
-    console.error('Error al actualizar las referencias al archivo CSS:', error);
-  });
+// Realizar el reemplazo para cada archivo de fuente con un retardo de 1 segundo
+fonts.forEach((font, index) => {
+  const optionsFont = {
+    files: `dist/_astro/about.CyMLqeeO.css`,
+    from: font.options.from,
+    to: font.options.to
+  };
+  const delay = (index + 1) * 1000; // Retraso de 1 segundo entre cada ejecución
+  replaceFilesWithDelay(optionsFont, delay);
+});
 
-  replace(optionsFont3)
-  .then(results => {
-    console.log('Referencias al archivo CSS actualizadas:', results);
-  })
-  .catch(error => {
-    console.error('Error al actualizar las referencias al archivo CSS:', error);
-  });
+// Función para renombrar los archivos
+function renameFile(src, dest) {
+  return gulp.src(src)
+    .pipe(rename(dest))
+    .pipe(gulp.dest('dist'))
+    .on('end', function () {
+      fs.chmodSync(`dist/${dest}`, '644');
+    });
+}
+
+setTimeout(() => {
+  renameFile(`dist/${optionsCss.from}`, optionsCss.to);
+}, 4000);
 
 
-  function renameCss() {
-    return gulp.src(`dist/_astro/${css}`) // ajusta la ruta según donde Astro genere tu CSS
-      .pipe(rename('styles/style.css')) // renombra el archivo CSS a 'styles.css'
-      .pipe(gulp.dest('dist')) // ajusta la ruta de destino según tu estructura de proyecto
-      .on('end', function() {
-        // Cambiar los permisos del archivo CSS generado
-        fs.chmodSync('dist/styles/style.css', '644');
-      });
-  }
-  
-  function renameFont1() {
-    return gulp.src(`dist/_astro/${font1}`) // ajusta la ruta según donde Astro genere tu CSS
-      .pipe(rename(`font/${font1}`)) // renombra el archivo CSS a 'styles.css'
-      .pipe(gulp.dest('dist')) // ajusta la ruta de destino según tu estructura de proyecto
-      .on('end', function() {
-        // Cambiar los permisos del archivo CSS generado
-        fs.chmodSync(`dist/font/${font1}`, '644');
-      });
-  }
-  
-  function renameFont2() {
-    return gulp.src(`dist/_astro/${font2}`) // ajusta la ruta según donde Astro genere tu CSS
-      .pipe(rename(`font/${font2}`)) // renombra el archivo CSS a 'styles.css'
-      .pipe(gulp.dest('dist')) // ajusta la ruta de destino según tu estructura de proyecto
-      .on('end', function() {
-        // Cambiar los permisos del archivo CSS generado
-        fs.chmodSync(`dist/font/${font2}`, '644');
-      });
-  }
-  
-  function renameFont3() {
-    return gulp.src(`dist/_astro/${font3}`) // ajusta la ruta según donde Astro genere tu CSS
-      .pipe(rename(`font/${font3}`)) // renombra el archivo CSS a 'styles.css'
-      .pipe(gulp.dest('dist')) // ajusta la ruta de destino según tu estructura de proyecto
-      .on('end', function() {
-        // Cambiar los permisos del archivo CSS generado
-        fs.chmodSync(`dist/font/${font3}`, '644');
-      });
-  }
-  
-  renameCss();
-  renameFont1();
-  renameFont2();
-  renameFont3();
+// Renombrar cada archivo de fuente con un retardo de 1 segundo
+fonts.forEach((font, index) => {
+  const src = `dist/_astro/${font.name}`;
+  const dest = `font/${font.name}`;
+  const delay = (index + 1) * 1000; // Retraso de 1 segundo entre cada ejecución
+  setTimeout(() => {
+    renameFile(src, dest);
+  }, delay);
+});
 
 
 
