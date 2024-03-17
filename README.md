@@ -4,7 +4,7 @@
 
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-![just-the-basics](./public/captura.png)
+![just-the-basics](./public/captura.jpeg)
 
 ## 🚀 Project Structure
 
