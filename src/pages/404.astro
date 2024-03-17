@@ -14,16 +14,14 @@ import Layout from "@/layouts/Layout.astro";
           404 - Not Found
         </h1>
         <button
-          id="back-link"
-          class="text-white animate-fade-in font-bold bg-primary py-2 px-4 rounded-lg hidden md:inline cursor-pointer"
+          class="text-white back-link animate-fade-in font-bold bg-primary py-2 px-4 rounded-lg hidden md:inline cursor-pointer"
           >Go Back</button
         >
       </div>
     </div>
     <div class="w-full box-border md:hidden flex">
       <button
-        id="back-link"
-        class="text-white animate-slide-in-top font-bold bg-primary m-3 flex flex-1 p-2 justify-center rounded-full cursor-pointer"
+        class="text-white back-link animate-slide-in-top font-bold bg-primary m-3 flex flex-1 p-2 justify-center rounded-full cursor-pointer"
         >Go Back</button
       >
     </div>
@@ -46,9 +44,11 @@ import Layout from "@/layouts/Layout.astro";
     img.src = "/kitchen-web.webp";
 
     // Boton ir atrás
-    const backButton = document.getElementById("back-link");
-    backButton.addEventListener("click", () => {
-      window.history.back();
+    const backButtons = document.querySelectorAll(".back-link");
+    backButtons.forEach((backButton) => {
+      backButton.addEventListener("click", () => {
+        window.history.back();
+      });
     });
   </script>
 </Layout>
