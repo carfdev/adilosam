@@ -1,0 +1,48 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="Adilosam | 404 - Page not found">
+  <section class="w-full md:p-4">
+    <div
+      class="bg-[url('/kitchen-web.webp')] bg-cover bg-center bg-no-repeat h-[75vw] p-4 md:p-10 flex items-end mb-3 md:mb-0 md:h-[65vh] md:rounded-xl"
+    >
+      <div>
+        <h1
+          class="text-white animate-fade-in [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] text-balance font-bold text-3xl md:text-5xl md:font-extrabold mb-5"
+        >
+          404 - Not Found
+        </h1>
+        <button
+          onclick="window.history.back(); return false;"
+          class="text-white animate-fade-in font-bold bg-primary py-2 px-4 rounded-lg hidden md:inline cursor-pointer"
+          >Go Back</button
+        >
+      </div>
+    </div>
+    <div class="w-full box-border md:hidden flex">
+      <button
+        onclick="window.history.back(); return false;"
+        class="text-white animate-slide-in-top font-bold bg-primary m-3 flex flex-1 p-2 justify-center rounded-full cursor-pointer"
+        >Go Back</button
+      >
+    </div>
+    <h2
+      class="font-bold text-xl my-4 dark:text-white text-light-color px-3 md:px-0"
+    >
+      Oops! Looks like you took a wrong turn
+    </h2>
+    <p class="dark:text-white text-light-color px-3 md:px-0">
+      The page you are looking for might have been removed, had its name
+      changed, or is temporarily unavailable.
+    </p>
+  </section>
+
+  <script is:inline>
+    // Crear una nueva instancia de la clase Image
+    var img = new Image();
+
+    // Establecer la URL de la imagen que deseas pre-cargar
+    img.src = "/kitchen-web.webp";
+  </script>
+</Layout>
