@@ -1,6 +1,7 @@
 ---
 // Supports weights 100-900
 import "@fontsource-variable/public-sans";
+import { ViewTransitions } from "astro:transitions";
 
 import Navbar from "@/components/navbar/Navbar.astro";
 import Footer from "@/components/Footer.astro";
@@ -28,6 +29,7 @@ const { title } = Astro.props;
     <!-- Etiqueta Schema.org para la imagen -->
     <meta itemprop="image" content="/kitchen-web.webp" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <ViewTransitions />
     <title>{title}</title>
   </head>
   <body class="bg-white dark:bg-[#121417]">
@@ -36,36 +38,51 @@ const { title } = Astro.props;
       <slot />
     </main>
     <Footer />
-    <script
-      is:inline
-      src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"
-    ></script>
-    <script is:inline>
-      window.chatwootSettings = {
-        position: "right",
-        type: "expanded_bubble",
-        launcherTitle: "Support",
-      };
-      (function (d, t) {
-        var BASE_URL = "https://app.chatwoot.com";
-        var g = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-        g.src = BASE_URL + "/packs/js/sdk.js";
-        g.defer = true;
-        g.async = true;
-        s.parentNode.insertBefore(g, s);
-        g.onload = function () {
-          window.chatwootSDK.run({
-            websiteToken: "sioKZmRw7SVRoqQ3xSNFwHxV",
-            baseUrl: BASE_URL,
+    <script>
+      import { Collapse } from "flowbite";
+      document.addEventListener("astro:after-swap", () => {
+        const dropdownPrivat = document.getElementById("dropdownPrivat");
+        const dropdownPrivatBtn = document.getElementById("dropdownPrivatLink");
+
+        const privat = new Collapse(dropdownPrivat, dropdownPrivatBtn);
+
+        privat.expand();
+        privat.toggle();
+
+        const dropdownFöretag = document.getElementById("dropdownFöretag");
+        const dropdownFöretagBtn = document.getElementById(
+          "dropdownFöretagLink"
+        );
+
+        const företag = new Collapse(dropdownFöretag, dropdownFöretagBtn);
+
+        företag.expand();
+        företag.toggle();
+
+        const navbarDropdown = document.getElementById("navbar-dropdown");
+        const navbarDropdownBtn = document.getElementById(
+          "navbar-dropdown-link"
+        );
+
+        const navbar = new Collapse(navbarDropdown, navbarDropdownBtn);
+
+        navbar.expand();
+        navbar.toggle();
+
+        if (dropdownFöretagBtn && dropdownPrivatBtn) {
+          dropdownPrivatBtn.addEventListener("click", function () {
+            företag.collapse();
           });
-        };
-      })(document, "script");
+          dropdownFöretagBtn.addEventListener("click", function () {
+            privat.collapse();
+          });
+        }
+      });
     </script>
+    <style is:global>
+      html {
+        font-family: "Public Sans Variable", sans-serif;
+      }
+    </style>
   </body>
 </html>
-<style is:global>
-  html {
-    font-family: "Public Sans Variable", sans-serif;
-  }
-</style>

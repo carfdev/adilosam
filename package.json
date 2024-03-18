@@ -6,7 +6,7 @@
     "css": "bun rename-css.js",
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build && bun rename-css.js",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },

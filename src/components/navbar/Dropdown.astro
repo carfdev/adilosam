@@ -11,7 +11,7 @@ const classList = active
   : "text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary dark:text-white md:dark:hover:text-primary dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent";
 ---
 
-<li>
+<li class="relative">
   <button
     id={`dropdown${name}Link`}
     data-dropdown-toggle={`dropdown${name}`}
@@ -35,7 +35,7 @@ const classList = active
   <!-- Dropdown menu -->
   <div
     id={`dropdown${name}`}
-    class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
+    class="z-10 font-normal hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute top-[3.1rem] md:top-8 left-1/2 -translate-x-1/2"
   >
     <ul
       class="py-2 text-sm text-gray-700 dark:text-gray-400"
