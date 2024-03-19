@@ -1,12 +1,21 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
 ---
 
 <Layout title="Adilosam | 404 - Page not found">
   <section class="w-full md:p-4">
     <div
-      class="bg-[url('/kitchen-web.webp')] bg-cover bg-center bg-no-repeat h-[75vw] p-4 md:p-10 flex items-end mb-3 md:mb-0 md:h-[65vh] md:rounded-xl"
+      class="relative w-full aspect-video p-4 md:p-10 flex items-end mb-3 md:mb-0 md:rounded-xl overflow-hidden"
     >
+      <Image
+        width="928"
+        height="522"
+        loading="eager"
+        class="absolute top-0 left-0 w-full -z-10"
+        src="/kitchen-web.webp"
+        alt="kitchen"
+      />
       <div>
         <h1
           class="text-white animate-fade-in [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] text-balance font-bold text-3xl md:text-5xl md:font-extrabold mb-5"

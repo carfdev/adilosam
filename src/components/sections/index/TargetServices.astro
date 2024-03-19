@@ -9,7 +9,15 @@ const { title, description, img } = Astro.props;
 ---
 
 <div>
-  <img class="rounded-lg w-full h-auto" src={img} alt={title} loading="eager" />
+  <div class="rounded-lg w-full aspect-square relative overflow-hidden">
+    <img
+      class="absolute top-0 left-0 w-full -z-10"
+      src={img}
+      alt={title}
+      loading="eager"
+    />
+  </div>
+
   <h3 class="font-medium mt-2 text-light-color dark:text-white">{title}</h3>
   <p class="font-light text-xs text-balance text-gray-700 dark:text-gray-400">
     {description}

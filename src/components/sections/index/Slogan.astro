@@ -1,12 +1,17 @@
 <section class="w-full p-4">
-  <div class="block sm:flex gap-4">
-    <img
-      src="/woman-5928696_1280.webp"
-      alt="Slogan"
-      loading="lazy"
-      class="hidden sm:block max-w-[40%] rounded-xl w-full h-auto"
-    />
-    <div class="py-4 flex flex-col justify-between">
+  <div class="block sm:grid sm:grid-cols-3 gap-4">
+    <div
+      class="w-full my-4 aspect-square hidden sm:block rounded-xl relative overflow-hidden"
+    >
+      <img
+        src="/woman-5928696_1280.webp"
+        alt="Slogan"
+        loading="eager"
+        class="hidden sm:block absolute top-0 left-0 w-full -z-10"
+      />
+    </div>
+
+    <div class="py-4 flex flex-col justify-between sm:col-span-2">
       <h2
         class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-balance font-bold mb-4 dark:text-white text-light-color"
       >
@@ -19,12 +24,16 @@
         >Book Now</a
       >
     </div>
-    <img
-      src="/cleanliness-2799496_1280.webp"
-      alt="Slogan"
-      loading="lazy"
-      class="rounded-xl sm:hidden w-full h-auto"
-    />
+    <div
+      class="w-full aspect-video rounded-lg sm:hidden relative overflow-hidden"
+    >
+      <img
+        src="/cleanliness-2799496_1280.webp"
+        alt="Slogan"
+        loading="eager"
+        class="sm:hidden w-full absolute top-0 left-0 -z-10"
+      />
+    </div>
   </div>
   <div class="w-full box-border md:hidden">
     <a
