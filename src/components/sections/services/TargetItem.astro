@@ -1,0 +1,16 @@
+---
+import CheckSolid from "@/components/icons/CheckSolid.astro";
+import XCircle from "@/components/icons/XCircle.astro";
+
+interface Props {
+  x?: undefined | true;
+}
+const { x } = Astro.props;
+---
+
+<li class="text-xs flex gap-2">
+  {x === undefined && <CheckSolid class="text-green-600 w-4 h-4" />}
+  {x === true && <XCircle class="text-red-600 w-4 h-4" />}
+
+  <span class="flex-1"><slot /></span>
+</li>

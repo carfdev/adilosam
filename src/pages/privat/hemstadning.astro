@@ -1,5 +1,80 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/sections/services/Header.astro";
+import Target from "@/components/sections/services/Target.astro";
+import TargetItem from "@/components/sections/services/TargetItem.astro";
 ---
 
-<Layout title="Hemstädning" />
+<Layout title="Hemstädning">
+  <Header />
+  <section class="w-full md:p-4 text-light-color dark:text-white">
+    <h1 class="text-xl px-3 font-bold md:text-2xl md:px-0 mb-4">
+      Residential Clining Service
+    </h1>
+    <p class="text-xs md:text-sm mb-5 px-3 md:px-0">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum dolorum,
+      ducimus eveniet ratione inventore doloremque quae expedita aperiam fuga
+      optio. Hic ex no
+    </p>
+    <h2 class="px-3 md:px-0 font-bold mb-4">Our Cleaning Routines</h2>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-3 md:px-0"
+    >
+      <Target title="Samtliga rum:">
+        <TargetItem>Dammsugning och våttorkning av golv.</TargetItem>
+        <TargetItem
+          >Rengöring av socklar, lister samt dörrar och dörrkarmar.</TargetItem
+        >
+        <TargetItem>Avtorkning av fria ytor och möbler.</TargetItem>
+        <TargetItem>Garderober, skåp och lådor rengörs utvändigt.</TargetItem>
+        <TargetItem>Rengöring av fönsterbänkar.</TargetItem>
+        <TargetItem>Trösklar.</TargetItem>
+        <TargetItem>Tömning av papperskorgar.</TargetItem>
+        <TargetItem>Damning av möbler.</TargetItem>
+        <TargetItem>Dammtorkning av hyllor och tavlor.</TargetItem>
+      </Target>
+      <Target title="Kök:">
+        <TargetItem>Rengöring av diskbänk, bänkar och spis.</TargetItem>
+        <TargetItem>Kranar rengörs.</TargetItem>
+        <TargetItem>Rengöring av kyl och frysskåp utvändigt.</TargetItem>
+        <TargetItem>Rengöring av köksfläkt (ej inuti).</TargetItem>
+        <TargetItem>Diskmaskinen rengörs utvändigt (ej bakom).</TargetItem>
+        <TargetItem>Avtorkning av köksskåp, lådor utvändigt.</TargetItem>
+      </Target>
+      <Target title="Bad och toalett:">
+        <TargetItem
+          >Rengöring av badkar, handfat, golv, toalett duschväggar och
+          duschkabin väggar.</TargetItem
+        >
+        <TargetItem>Tvättmaskinen och torkskåp rengörs utvändigt.</TargetItem>
+        <TargetItem>Kranar rengörs.</TargetItem>
+        <TargetItem>Speglar rengörs.</TargetItem>
+      </Target>
+      <Target red title="Ej ingår i hemstädning:">
+        <TargetItem x
+          >Vi rengör bara ytor som kan nås utan trappstege eller stol.</TargetItem
+        >
+        <TargetItem x
+          >Vi behöver inte flytta eller lyfta tunga föremål.</TargetItem
+        >
+        <TargetItem x>Fönsterputs beställs separat.</TargetItem>
+        <TargetItem x>Diskning ingår inte.</TargetItem>
+        <TargetItem x
+          >Rengöring av avlopp och golvbrunnar ingår inte.</TargetItem
+        >
+        <TargetItem x
+          >Rengöring av element eller ventiler ingår inte.</TargetItem
+        >
+        <TargetItem x>Rengöring av lådor eller skåp inne ingår inte.</TargetItem
+        >
+        <TargetItem x
+          >Rengöring av kyl- eller frysskåp invändigt ingår inte.</TargetItem
+        >
+        <TargetItem x>Rengöring av ugn invändigt ingår inte.</TargetItem>
+        <TargetItem x
+          >Rengöring av tvätt- och torkmaskiner ingår inte.</TargetItem
+        >
+      </Target>
+    </div>
+  </section>
+</Layout>

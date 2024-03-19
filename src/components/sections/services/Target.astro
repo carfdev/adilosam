@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  red?: undefined | true;
+}
+
+const { title, red } = Astro.props;
+const className =
+  red === true ? "bg-red-600 bg-opacity-5" : "bg-green-600 bg-opacity-5";
+---
+
+<div
+  class=`w-full rounded-xl border-2 border-solid border-gray-700 p-4 ${className}`
+>
+  <h3 class="font-bold mb-1">{title}</h3>
+  <ul>
+    <slot />
+  </ul>
+</div>
