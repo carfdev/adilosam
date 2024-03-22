@@ -1,0 +1,65 @@
+---
+import Acordion from "@/components/Acordion.astro";
+import AcordionItem from "@/components/AcordionItem.astro";
+---
+
+<section class="w-full md:p-4 text-light-color dark:text-white text-center">
+  <h1 class="text-xl px-3 font-bold md:text-2xl md:px-0 mb-4 uppercase">
+    Det här ingår i hemstädning
+  </h1>
+  <div class="mb-4 text-xl p-4 flex flex-col gap-4">
+    <p>
+      Våra skickliga hemstädare har med sig Svanenmärkta rengöringmedel och
+      mikrofiberdukar när de gör ditt hem skinande rent. Mikrofiberdukarna
+      lämnar vi kvar hos dig efter din första hemstädning, så att du själv kan
+      tvätta dessa till nästa städning.
+    </p>
+    <p>Det du behöver ha hemma är en dammsugare, mopp och hink.</p>
+    <p>
+      Här ser du vad vårt grundpaket innehåller och vilka tjänster som du enkelt
+      kan lägga till.
+    </p>
+  </div>
+  <Acordion class="text-xl">
+    <AcordionItem title="Samtliga rum:" item={1}>
+      <li>Dammsugning och våttorkning av golv.</li>
+      <li>Rengöring av socklar, lister samt dörrar och dörrkarmar.</li>
+      <li>Avtorkning av fria ytor och möbler.</li>
+      <li>Garderober, skåp och lådor rengörs utvändigt.</li>
+      <li>Rengöring av fönsterbänkar.</li>
+      <li>Trösklar.</li>
+      <li>Tömning av papperskorgar.</li>
+      <li>Damning av möbler.</li>
+      <li>Dammtorkning av hyllor och tavlor.</li>
+    </AcordionItem>
+    <AcordionItem title="Kök:" item={2}>
+      <li>Rengöring av diskbänk, bänkar och spis.</li>
+      <li>Kranar rengörs.</li>
+      <li>Rengöring av kyl och frysskåp utvändigt.</li>
+      <li>Rengöring av köksfläkt (ej inuti).</li>
+      <li>Diskmaskinen rengörs utvändigt (ej bakom).</li>
+      <li>Avtorkning av köksskåp, lådor utvändigt.</li>
+    </AcordionItem>
+    <AcordionItem title="Bad och toalett:" item={3}>
+      <li>
+        Rengöring av badkar, handfat, golv, toalett duschväggar och duschkabin
+        väggar.
+      </li>
+      <li>Tvättmaskinen och torkskåp rengörs utvändigt.</li>
+      <li>Kranar rengörs.</li>
+      <li>Speglar rengörs.</li>
+    </AcordionItem>
+    <AcordionItem title="Ej ingår i hemstädning:" item={4}>
+      <li>Vi rengör bara ytor som kan nås utan trappstege eller stol.</li>
+      <li>Vi behöver inte flytta eller lyfta tunga föremål.</li>
+      <li>Fönsterputs beställs separat.</li>
+      <li>Diskning ingår inte.</li>
+      <li>Rengöring av avlopp och golvbrunnar ingår inte.</li>
+      <li>Rengöring av element eller ventiler ingår inte.</li>
+      <li>Rengöring av lådor eller skåp inne ingår inte.</li>
+      <li>Rengöring av kyl- eller frysskåp invändigt ingår inte.</li>
+      <li>Rengöring av ugn invändigt ingår inte.</li>
+      <li>Rengöring av tvätt- och torkmaskiner ingår inte.</li>
+    </AcordionItem>
+  </Acordion>
+</section>

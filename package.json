@@ -12,14 +12,16 @@
   },
   "dependencies": {
     "@astrojs/check": "0.5.6",
+    "@astrojs/sitemap": "^3.1.1",
     "@astrojs/tailwind": "5.1.0",
     "@fontsource-variable/public-sans": "5.0.17",
     "@midudev/tailwind-animations": "0.0.7",
     "astro": "4.4.9",
+    "astro-robots-txt": "1.0.0",
     "flowbite": "2.3.0",
-    "gulp": "^4.0.2",
-    "gulp-rename": "^2.0.0",
-    "replace-in-file": "^7.1.0",
+    "gulp": "4.0.2",
+    "gulp-rename": "2.0.0",
+    "replace-in-file": "7.1.0",
     "tailwindcss": "3.4.1",
     "typescript": "5.3.3"
   }

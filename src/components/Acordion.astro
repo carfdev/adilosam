@@ -1,0 +1,96 @@
+---
+interface Props {
+  class?: string;
+}
+
+const className = Astro.props.class;
+---
+
+<div id="accordion" class=`px-4 ${className}`>
+  <slot />
+</div>
+
+<script>
+  import { Accordion } from "flowbite";
+  import type { AccordionOptions, AccordionItem } from "flowbite";
+  import type { InstanceOptions } from "flowbite";
+
+  interface AccordionInterface {
+    init(): void;
+    destroy(): void;
+    open(value: string): void;
+    close(value: string): void;
+    toggle(value: string): void;
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    const accordionEl: HTMLElement | null =
+      document.querySelector("#accordion");
+
+    function getElementOrThrowError(selector: string): HTMLElement {
+      const element = document.querySelector(selector);
+      if (!element) {
+        throw new Error(`Elemento no encontrado para el selector: ${selector}`);
+      }
+      // Conversión explícita del tipo para decirle a TypeScript que es un HTMLElement
+      return element as HTMLElement;
+    }
+
+    function generateAccordionItems(count: number): AccordionItem[] {
+      const accordionItems: AccordionItem[] = [];
+
+      for (let i = 1; i <= count; i++) {
+        const item: AccordionItem = {
+          id: `accordion-heading-${i}`,
+          triggerEl: getElementOrThrowError(`#accordion-heading-${i}`),
+          targetEl: getElementOrThrowError(`#accordion-body-${i}`),
+          active: false,
+        };
+
+        accordionItems.push(item);
+      }
+
+      return accordionItems;
+    }
+
+    let items: number = 0;
+
+    if (accordionEl) {
+      // Obtener el último elemento hijo del contenedor
+      const ultimoElemento = accordionEl.lastElementChild;
+      if (ultimoElemento) {
+        // Obtener el id del último elemento hijo
+        const idUltimoElemento = ultimoElemento.id;
+        const ultimoCaracter = idUltimoElemento.charAt(
+          idUltimoElemento.length - 1
+        );
+        items = parseInt(ultimoCaracter);
+      }
+    }
+
+    // create an array of objects with the id, trigger element (eg. button), and the content element
+    const accordionItems: AccordionItem[] = generateAccordionItems(items);
+
+    // options with default values
+    const options: AccordionOptions = {
+      alwaysOpen: false,
+      activeClasses: "text-light-color dark:text-white",
+      inactiveClasses: "text-light-color dark:text-white",
+    };
+
+    // instance options object
+    const instanceOptions: InstanceOptions = {
+      id: "accordion",
+      override: true,
+    };
+
+    const accordion: AccordionInterface = new Accordion(
+      accordionEl,
+      accordionItems,
+      options,
+      instanceOptions
+    );
+
+    accordion.init();
+  });
+</script>

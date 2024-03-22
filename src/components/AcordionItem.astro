@@ -1,0 +1,46 @@
+---
+interface Props {
+  title: string;
+  item: number;
+}
+const { title, item } = Astro.props;
+---
+
+<h2 id=`accordion-heading-${item}`>
+  <button
+    type="button"
+    class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-light-color dark:text-white gap-3"
+  >
+    <span class="text-left flex-1">{title}</span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6 transition-transform duration-300 ease-in-out"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
+    </svg>
+  </button>
+</h2>
+<div
+  id=`accordion-body-${item}`
+  class="hidden"
+  aria-labelledby=`accordion-heading-${item}`
+>
+  <div class="py-5 text-light-color dark:text-white text-sm">
+    <ul class="list-disc text-left pl-12">
+      <slot />
+    </ul>
+  </div>
+</div>
+
+<style>
+  h2[aria-expanded="true"] > button > svg {
+    @apply rotate-90;
+  }
+</style>

@@ -39,47 +39,6 @@ const { title, transitions } = Astro.props;
       <slot />
     </main>
     <Footer />
-    <script>
-      import { Collapse } from "flowbite";
-      document.addEventListener("astro:after-swap", () => {
-        const dropdownPrivat = document.getElementById("dropdownPrivat");
-        const dropdownPrivatBtn = document.getElementById("dropdownPrivatLink");
-
-        const privat = new Collapse(dropdownPrivat, dropdownPrivatBtn);
-
-        privat.expand();
-        privat.toggle();
-
-        const dropdownFöretag = document.getElementById("dropdownFöretag");
-        const dropdownFöretagBtn = document.getElementById(
-          "dropdownFöretagLink"
-        );
-
-        const företag = new Collapse(dropdownFöretag, dropdownFöretagBtn);
-
-        företag.expand();
-        företag.toggle();
-
-        const navbarDropdown = document.getElementById("navbar-dropdown");
-        const navbarDropdownBtn = document.getElementById(
-          "navbar-dropdown-link"
-        );
-
-        const navbar = new Collapse(navbarDropdown, navbarDropdownBtn);
-
-        navbar.expand();
-        navbar.toggle();
-
-        if (dropdownFöretagBtn && dropdownPrivatBtn) {
-          dropdownPrivatBtn.addEventListener("click", function () {
-            företag.collapse();
-          });
-          dropdownFöretagBtn.addEventListener("click", function () {
-            privat.collapse();
-          });
-        }
-      });
-    </script>
     <style is:global>
       html {
         font-family: "Public Sans Variable", sans-serif;
