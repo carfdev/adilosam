@@ -35,13 +35,23 @@ const { title, transitions } = Astro.props;
   </head>
   <body class="bg-white dark:bg-[#121417]">
     <Navbar />
-    <main class="w-screen max-w-[960px] mx-auto md:mt-5">
+    <main class="w-full max-w-[960px] mx-auto md:mt-5">
       <slot />
     </main>
     <Footer />
     <style is:global>
       html {
         font-family: "Public Sans Variable", sans-serif;
+      }
+      body::-webkit-scrollbar {
+        width: 5px; /* Ancho de la barra de desplazamiento */
+      }
+      body::-webkit-scrollbar-track {
+        background: transparent; /* Color del riel */
+      }
+      body::-webkit-scrollbar-thumb {
+        background: #888; /* Color del pulgar */
+        border-radius: 5px; /* Borde redondeado */
       }
     </style>
   </body>

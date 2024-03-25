@@ -9,7 +9,7 @@ const robotsConfig: RobotsTxtOptions = {
       disallow: siteConfig.disableIndexing ? '/' : '',
     },
   ],
-  sitemapBaseFileName: 'sitemap-index', // default 'sitemap-index'
+  sitemap: false, // default 'sitemap-index'
 };
 
 export default robotsConfig;

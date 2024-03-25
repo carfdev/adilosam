@@ -6,7 +6,7 @@ interface Props {
 const className = Astro.props.class;
 ---
 
-<div id="accordion" class=`px-4 ${className}`>
+<div class=`px-4 accordion ${className}`>
   <slot />
 </div>
 
@@ -25,8 +25,7 @@ const className = Astro.props.class;
 
   document.addEventListener("astro:page-load", () => {
     const accordionEl: HTMLElement | null =
-      document.querySelector("#accordion");
-
+      document.querySelector("div.accordion");
     function getElementOrThrowError(selector: string): HTMLElement {
       const element = document.querySelector(selector);
       if (!element) {

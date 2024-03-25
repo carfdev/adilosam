@@ -11,9 +11,9 @@ const link = parts.slice(0, 2).join("/");
 ---
 
 <nav
-  class="bg-white md:border-border md:border-b dark:bg-[#121417] fixed top-0 w-screen z-30"
+  class="bg-white md:border-border md:border-b dark:bg-[#121417] fixed top-0 z-30 flex flex-nowrap w-full"
 >
-  <div class="flex flex-wrap items-center justify-between py-3 px-10">
+  <div class="flex flex-wrap items-center justify-between py-3 px-10 w-full">
     <Logo />
     <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
       <a
@@ -83,7 +83,7 @@ const link = parts.slice(0, 2).join("/");
 <div class="h-16"></div>
 
 <script>
-  import { Collapse } from "flowbite";
+  import { Collapse, Dropdown } from "flowbite";
   document.addEventListener("astro:after-swap", () => {
     const dropdownPrivat = document.getElementById("dropdownPrivat");
     const dropdownPrivatBtn = document.getElementById("dropdownPrivatLink");
